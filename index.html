@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grand Turf Clash | Under 18 Turf Cricket Tournament</title>
+<meta name="description" content="The Grand Turf Clash — Under 18 Soft Tennis Ball Cricket Tournament. 5–8 May 2026, PowerPlay Madhapar. Register now!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e0a;
+  --bg2:#111a11;
+  --bg3:#162016;
+  --green:#1db954;
+  --green-dark:#148f3f;
+  --gold:#f5c842;
+  --gold-dim:#c9a020;
+  --white:#f0f0f0;
+  --gray:#8a9a8a;
+  --red:#e04040;
+  --card:#0f1a0f;
+  --border:#1e3a1e;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Rajdhani',sans-serif;
+  background:var(--bg);
+  color:var(--white);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+/* ── Noise overlay ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.5;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--green-dark);border-radius:3px}
+
+/* ── Utility ── */
+.section{padding:80px 20px;max-width:1100px;margin:0 auto}
+.section-label{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.85rem;letter-spacing:6px;
+  color:var(--green);text-transform:uppercase;
+  margin-bottom:8px;
+}
+.section-title{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(1.8rem,5vw,2.8rem);
+  font-weight:700;text-transform:uppercase;
+  line-height:1.15;margin-bottom:30px;
+}
+.highlight{color:var(--gold)}
+
+/* ── Nav ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:14px 30px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,14,10,.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(29,185,84,.15);
+  transition:all .3s;
+}
+nav.scrolled{padding:10px 30px;background:rgba(10,14,10,.95)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo svg{width:32px;height:32px}
+.nav-logo span{
+  font-family:'Oswald',sans-serif;font-size:1rem;
+  font-weight:700;color:var(--white);letter-spacing:1px;
+}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{
+  font-family:'Rajdhani',sans-serif;font-weight:600;font-size:.95rem;
+  color:var(--gray);text-decoration:none;letter-spacing:1px;
+  text-transform:uppercase;transition:color .3s;
+}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{
+  background:var(--green);color:#000;
+  padding:8px 22px;border-radius:4px;
+  font-family:'Oswald',sans-serif;font-weight:600;font-size:.9rem;
+  text-transform:uppercase;letter-spacing:1px;
+  text-decoration:none;transition:all .3s;
+}
+.nav-cta:hover{background:var(--gold);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all .3s}
+
+/* ── Hero ── */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:120px 20px 80px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%,rgba(29,185,84,.08) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 50% at 80% 20%,rgba(245,200,66,.05) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-block;
+  padding:6px 20px;border-radius:50px;
+  border:1px solid var(--green);
+  font-size:.8rem;font-weight:600;letter-spacing:3px;
+  color:var(--green);text-transform:uppercase;
+  margin-bottom:24px;
+  animation:fadeDown .8s ease-out;
+}
+.hero-logo{
+  margin-bottom:20px;
+  animation:fadeDown .8s ease-out .1s both;
+}
+.hero-logo svg{width:120px;height:120px}
+.hero h1{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(2.8rem,8vw,5.5rem);
+  font-weight:700;text-transform:uppercase;
+  line-height:1;letter-spacing:2px;
+  margin-bottom:14px;
+  animation:fadeDown .8s ease-out .2s both;
+}
+.hero h1 .line2{color:var(--gold);display:block}
+.hero-sub{
+  font-size:clamp(1rem,2.5vw,1.3rem);
+  color:var(--gray);font-weight:500;
+  margin-bottom:10px;letter-spacing:1px;
+  animation:fadeDown .8s ease-out .3s both;
+}
+.hero-date{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(1.1rem,3vw,1.5rem);
+  font-weight:600;color:var(--white);
+  letter-spacing:2px;margin-bottom:36px;
+  animation:fadeDown .8s ease-out .35s both;
+}
+.hero-cta{
+  display:inline-block;
+  padding:16px 50px;
+  background:var(--green);color:#000;
+  font-family:'Oswald',sans-serif;font-size:1.15rem;
+  font-weight:700;text-transform:uppercase;
+  letter-spacing:2px;text-decoration:none;
+  border:none;cursor:pointer;
+  clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);
+  transition:all .3s;
+  animation:fadeDown .8s ease-out .45s both;
+}
+.hero-cta:hover{background:var(--gold);transform:scale(1.04)}
+.scroll-hint{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:var(--gray);font-size:.7rem;letter-spacing:3px;text-transform:uppercase;
+  animation:pulse 2s infinite;
+}
+.scroll-hint .arrow{width:16px;height:16px;border-right:2px solid var(--gray);border-bottom:2px solid var(--gray);transform:rotate(45deg)}
+
+/* ── Details ── */
+#details{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.details-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;margin-bottom:40px;
+}
+.detail-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:28px 24px;
+  position:relative;overflow:hidden;
+  transition:transform .3s,border-color .3s;
+}
+.detail-card:hover{transform:translateY(-4px);border-color:var(--green)}
+.detail-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green),var(--gold));
+  opacity:0;transition:opacity .3s;
+}
+.detail-card:hover::before{opacity:1}
+.detail-card .icon{font-size:1.8rem;margin-bottom:12px;display:block}
+.detail-card h3{
+  font-family:'Oswald',sans-serif;font-size:1rem;
+  font-weight:600;text-transform:uppercase;letter-spacing:2px;
+  color:var(--gray);margin-bottom:6px;
+}
+.detail-card p{
+  font-size:1.2rem;font-weight:600;color:var(--white);line-height:1.4;
+}
+.detail-card p .sub{display:block;font-size:.85rem;color:var(--gray);font-weight:400;margin-top:2px}
+
+/* Countdown */
+.countdown-container{text-align:center;margin-top:10px}
+.countdown-container h3{
+  font-family:'Oswald',sans-serif;font-size:1.1rem;
+  color:var(--gray);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;
+}
+.countdown{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.countdown .unit{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:16px 20px;min-width:80px;text-align:center;
+}
+.countdown .num{
+  font-family:'Bebas Neue',sans-serif;font-size:2.2rem;
+  color:var(--gold);line-height:1;display:block;
+}
+.countdown .lbl{
+  font-size:.7rem;color:var(--gray);letter-spacing:2px;text-transform:uppercase;
+}
+
+/* ── Format ── */
+.format-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.format-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:24px;text-align:center;
+  transition:transform .3s,border-color .3s;
+}
+.format-card:hover{transform:translateY(-3px);border-color:var(--green)}
+.format-card .f-icon{font-size:2rem;margin-bottom:10px}
+.format-card h3{
+  font-family:'Oswald',sans-serif;font-size:1.05rem;
+  font-weight:600;text-transform:uppercase;letter-spacing:1px;
+  margin-bottom:6px;
+}
+.format-card p{font-size:.95rem;color:var(--gray)}
+
+/* ── Prizes ── */
+#prizes{background:var(--bg)}
+.prizes-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-bottom:30px}
+.prize-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:36px 28px;text-align:center;
+  position:relative;overflow:hidden;
+  transition:transform .3s,border-color .3s;
+}
+.prize-card:hover{transform:translateY(-5px)}
+.prize-card.winner{border-color:var(--gold)}
+.prize-card.winner::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),#ffd700,var(--gold));
+}
+.prize-card.runner{border-color:var(--gray)}
+.prize-card.runner::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,#aaa,#ccc,#aaa);
+}
+.prize-card .trophy{font-size:2.8rem;margin-bottom:12px;display:block}
+.prize-card h3{
+  font-family:'Oswald',sans-serif;font-size:1.1rem;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--gray);margin-bottom:10px;
+}
+.prize-card .amount{
+  font-family:'Bebas Neue',sans-serif;font-size:2.8rem;
+  color:var(--gold);line-height:1;
+}
+.prize-card.runner .amount{color:#ccc}
+.prize-card .plus{
+  font-size:1rem;color:var(--gray);margin-top:6px;font-weight:500;
+}
+.motm-banner{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:8px;padding:20px 28px;
+  display:flex;align-items:center;gap:16px;
+  flex-wrap:wrap;
+}
+.motm-banner .medal{font-size:2rem}
+.motm-banner p{font-size:1.05rem;font-weight:500}
+.motm-banner p strong{color:var(--gold)}
+
+/* ── Entry Fee ── */
+#entry{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.entry-box{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:10px;padding:40px;text-align:center;
+  max-width:500px;margin:0 auto;
+  position:relative;overflow:hidden;
+}
+.entry-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--green),var(--gold),var(--green));
+}
+.entry-box .fee-amount{
+  font-family:'Bebas Neue',sans-serif;font-size:3.5rem;
+  color:var(--green);line-height:1;margin-bottom:6px;
+}
+.entry-box .fee-sub{font-size:1rem;color:var(--gray);margin-bottom:16px}
+.entry-box .fee-note{
+  font-size:.85rem;color:var(--gold);
+  background:rgba(245,200,66,.08);border:1px solid rgba(245,200,66,.2);
+  border-radius:6px;padding:10px 16px;display:inline-block;
+}
+
+/* ── Registration ── */
+#register{background:var(--bg)}
+.reg-container{max-width:520px;margin:0 auto}
+.reg-step{display:none}
+.reg-step.active{display:block;animation:fadeIn .4s ease-out}
+.form-group{margin-bottom:20px}
+.form-group label{
+  display:block;font-family:'Oswald',sans-serif;
+  font-size:.85rem;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gray);margin-bottom:8px;
+}
+.form-group input{
+  width:100%;padding:14px 18px;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:6px;color:var(--white);
+  font-family:'Rajdhani',sans-serif;font-size:1.05rem;font-weight:500;
+  transition:border-color .3s;outline:none;
+}
+.form-group input::placeholder{color:#4a5a4a}
+.form-group input:focus{border-color:var(--green)}
+.form-group input.error{border-color:var(--red)}
+.error-msg{color:var(--red);font-size:.8rem;margin-top:4px;display:none}
+
+.btn-primary{
+  width:100%;padding:16px;
+  background:var(--green);color:#000;
+  font-family:'Oswald',sans-serif;font-size:1.1rem;
+  font-weight:700;text-transform:uppercase;letter-spacing:2px;
+  border:none;border-radius:6px;cursor:pointer;
+  transition:all .3s;
+}
+.btn-primary:hover{background:var(--gold)}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed}
+
+/* Payment choice */
+.payment-choice{display:flex;gap:16px;margin-top:10px}
+.pay-btn{
+  flex:1;padding:18px 16px;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;cursor:pointer;text-align:center;
+  transition:all .3s;
+}
+.pay-btn:hover{border-color:var(--green);transform:translateY(-2px)}
+.pay-btn .pay-icon{font-size:1.8rem;margin-bottom:6px;display:block}
+.pay-btn h4{
+  font-family:'Oswald',sans-serif;font-size:1rem;
+  font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  color:var(--white);
+}
+.pay-btn p{font-size:.8rem;color:var(--gray);margin-top:2px}
+
+/* QR Section */
+.qr-section{text-align:center}
+.qr-section h3{
+  font-family:'Oswald',sans-serif;font-size:1.1rem;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--gray);margin-bottom:6px;
+}
+.qr-amount{
+  font-family:'Bebas Neue',sans-serif;font-size:2rem;
+  color:var(--green);margin-bottom:4px;
+}
+.qr-upi{font-size:.85rem;color:var(--gray);margin-bottom:16px}
+#qr-code{
+  display:inline-block;
+  background:#fff;padding:12px;border-radius:10px;
+  margin-bottom:20px;
+}
+#qr-code img{display:block;border-radius:4px}
+#qr-code canvas{display:block;border-radius:4px}
+
+/* Thank you */
+.thank-you{text-align:center;padding:20px 0}
+.thank-you .check{
+  width:70px;height:70px;border-radius:50%;
+  background:var(--green);display:inline-flex;
+  align-items:center;justify-content:center;
+  margin-bottom:20px;
+  animation:popIn .5s ease-out;
+}
+.thank-you .check svg{width:36px;height:36px}
+.thank-you h2{
+  font-family:'Oswald',sans-serif;font-size:1.8rem;
+  font-weight:700;text-transform:uppercase;letter-spacing:2px;
+  margin-bottom:10px;
+}
+.thank-you p{color:var(--gray);font-size:1.05rem;margin-bottom:6px}
+.thank-you .org-title{
+  font-family:'Oswald',sans-serif;font-size:.9rem;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--green);margin-top:28px;margin-bottom:14px;
+}
+.org-cards{display:flex;flex-direction:column;gap:10px;max-width:320px;margin:0 auto}
+.org-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:12px 18px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.org-card .name{font-weight:600;font-size:1rem}
+.org-card a{
+  color:var(--green);text-decoration:none;font-weight:600;
+  font-size:.95rem;transition:color .3s;
+}
+.org-card a:hover{color:var(--gold)}
+
+/* ── Footer ── */
+footer{
+  background:var(--bg2);border-top:1px solid var(--border);
+  padding:40px 20px;text-align:center;
+}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:16px}
+.footer-logo svg{width:28px;height:28px}
+.footer-logo span{font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:1px}
+.footer-insta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 24px;border:1px solid var(--border);border-radius:50px;
+  color:var(--white);text-decoration:none;font-weight:600;
+  font-size:.9rem;transition:all .3s;margin-bottom:20px;
+}
+.footer-insta:hover{border-color:var(--green);color:var(--green)}
+.footer-insta svg{width:18px;height:18px}
+footer .copy{font-size:.8rem;color:var(--gray)}
+
+/* ── Animations ── */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{0%{transform:scale(0)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ── Responsive ── */
+@media(max-width:768px){
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:70%;height:100vh;
+    flex-direction:column;justify-content:center;
+    background:var(--bg);padding:40px;gap:30px;
+    transition:right .3s;z-index:999;
+    border-left:1px solid var(--border);
+  }
+  .nav-links.open{right:0}
+  .hamburger{display:flex;z-index:1001}
+  .section{padding:60px 16px}
+  .payment-choice{flex-direction:column}
+  .prizes-row{grid-template-columns:1fr}
+  .motm-banner{justify-content:center;text-align:center}
+  .countdown .unit{min-width:65px;padding:12px 14px}
+  .countdown .num{font-size:1.8rem}
+}
+
+/* ── Spot reveal on scroll ── */
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s ease-out}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Loading spinner */
+.spinner{
+  display:inline-block;width:20px;height:20px;
+  border:2px solid rgba(0,0,0,.2);border-top-color:#000;
+  border-radius:50%;animation:spin .6s linear infinite;
+  vertical-align:middle;margin-right:8px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="46" stroke="#1db954" stroke-width="3" fill="none"/>
+      <circle cx="50" cy="50" r="38" stroke="#1db95440" stroke-width="1" fill="none"/>
+      <!-- Cricket bat -->
+      <rect x="38" y="20" width="8" height="40" rx="3" fill="#f5c842" transform="rotate(-15 42 40)"/>
+      <rect x="40" y="56" width="4" height="14" rx="1.5" fill="#c9a020" transform="rotate(-15 42 63)"/>
+      <!-- Ball -->
+      <circle cx="62" cy="34" r="8" fill="#1db954"/>
+      <path d="M56 30 Q62 34 68 30" stroke="#0a0e0a" stroke-width="1.5" fill="none"/>
+      <path d="M56 38 Q62 34 68 38" stroke="#0a0e0a" stroke-width="1.5" fill="none"/>
+      <!-- Stars -->
+      <circle cx="28" cy="28" r="1.5" fill="#f5c842"/>
+      <circle cx="72" cy="68" r="1.5" fill="#f5c842"/>
+      <circle cx="26" cy="65" r="1" fill="#f5c84280"/>
+      <!-- Text arc -->
+      <text font-family="Oswald,sans-serif" font-size="7" font-weight="700" fill="#f0f0f0" letter-spacing="1.5">
+        <textPath href="#textCircle" startOffset="18%">GRAND TURF CLASH</textPath>
+      </text>
+      <defs><path id="textCircle" d="M50,50 m-34,0 a34,34 0 1,1 68,0 a34,34 0 1,1 -68,0"/></defs>
+    </svg>
+    <span>THE GRAND TURF CLASH</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#details">Details</a>
+    <a href="#format">Format</a>
+    <a href="#prizes">Prizes</a>
+    <a href="#register" class="nav-cta">Register</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <span class="hero-badge">Under 18 Turf Cricket</span>
+  <div class="hero-logo">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="46" stroke="#1db954" stroke-width="2.5" fill="none"/>
+      <circle cx="50" cy="50" r="38" stroke="#1db95430" stroke-width="1" fill="none"/>
+      <rect x="38" y="20" width="8" height="40" rx="3" fill="#f5c842" transform="rotate(-15 42 40)"/>
+      <rect x="40" y="56" width="4" height="14" rx="1.5" fill="#c9a020" transform="rotate(-15 42 63)"/>
+      <circle cx="62" cy="34" r="8" fill="#1db954"/>
+      <path d="M56 30 Q62 34 68 30" stroke="#0a0e0a" stroke-width="1.5" fill="none"/>
+      <path d="M56 38 Q62 34 68 38" stroke="#0a0e0a" stroke-width="1.5" fill="none"/>
+      <circle cx="28" cy="28" r="1.5" fill="#f5c842"/>
+      <circle cx="72" cy="68" r="1.5" fill="#f5c842"/>
+      <circle cx="26" cy="65" r="1" fill="#f5c84280"/>
+      <text font-family="Oswald,sans-serif" font-size="7" font-weight="700" fill="#f0f0f0" letter-spacing="1.5">
+        <textPath href="#heroTextCircle" startOffset="18%">GRAND TURF CLASH</textPath>
+      </text>
+      <defs><path id="heroTextCircle" d="M50,50 m-34,0 a34,34 0 1,1 68,0 a34,34 0 1,1 -68,0"/></defs>
+    </svg>
+  </div>
+  <h1>The Grand<span class="line2">Turf Clash</span></h1>
+  <p class="hero-sub">Soft Tennis Ball Cricket Tournament</p>
+  <p class="hero-date">5 – 8 May 2026 &nbsp;•&nbsp; PowerPlay, Madhapar</p>
+  <a href="#register" class="hero-cta">Register Your Team</a>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- Tournament Details -->
+<section id="details">
+  <div class="section reveal">
+    <p class="section-label">Tournament Info</p>
+    <h2 class="section-title">Everything You <span class="highlight">Need to Know</span></h2>
+    <div class="details-grid">
+      <div class="detail-card">
+        <span class="icon">📅</span>
+        <h3>Dates</h3>
+        <p>5 – 8 May 2026</p>
+      </div>
+      <div class="detail-card">
+        <span class="icon">⏰</span>
+        <h3>Match Time</h3>
+        <p>6:00 PM – 12:00 AM<span class="sub">Under the Lights</span></p>
+      </div>
+      <div class="detail-card">
+        <span class="icon">📍</span>
+        <h3>Venue</h3>
+        <p>PowerPlay, Madhapar<span class="sub">Near Nayara Petrol Pump</span></p>
+      </div>
+      <div class="detail-card">
+        <span class="icon">👥</span>
+        <h3>Teams</h3>
+        <p>Only 16 Spots<span class="sub">First Come, First Serve</span></p>
+      </div>
+      <div class="detail-card">
+        <span class="icon">📝</span>
+        <h3>Registration Deadline</h3>
+        <p>26 April 2026</p>
+      </div>
+      <div class="detail-card">
+        <span class="icon">🏟️</span>
+        <h3>Age Group</h3>
+        <p>Under 18<span class="sub">Players below 18 years</span></p>
+      </div>
+    </div>
+    <!-- Countdown -->
+    <div class="countdown-container">
+      <h3>Registration Closes In</h3>
+      <div class="countdown" id="countdown">
+        <div class="unit"><span class="num" id="cd-days">--</span><span class="lbl">Days</span></div>
+        <div class="unit"><span class="num" id="cd-hours">--</span><span class="lbl">Hours</span></div>
+        <div class="unit"><span class="num" id="cd-mins">--</span><span class="lbl">Mins</span></div>
+        <div class="unit"><span class="num" id="cd-secs">--</span><span class="lbl">Secs</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Match Format -->
+<section id="format">
+  <div class="section reveal">
+    <p class="section-label">Match Format</p>
+    <h2 class="section-title">How We <span class="highlight">Play</span></h2>
+    <div class="format-cards">
+      <div class="format-card">
+        <span class="f-icon">🎾</span>
+        <h3>Soft Tennis Ball</h3>
+        <p>All matches played with soft tennis ball</p>
+      </div>
+      <div class="format-card">
+        <span class="f-icon">🏏</span>
+        <h3>7 Overs</h3>
+        <p>Fast-paced 7-over matches per side</p>
+      </div>
+      <div class="format-card">
+        <span class="f-icon">👤</span>
+        <h3>7 Players / Team</h3>
+        <p>Including the owner, if they choose to play</p>
+      </div>
+      <div class="format-card">
+        <span class="f-icon">📋</span>
+        <h3>Rules</h3>
+        <p>Detailed rules will be communicated to owners separately</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Prizes -->
+<section id="prizes">
+  <div class="section reveal">
+    <p class="section-label">What's at Stake</p>
+    <h2 class="section-title">Prize <span class="highlight">Pool</span></h2>
+    <div class="prizes-row">
+      <div class="prize-card winner">
+        <span class="trophy">🏆</span>
+        <h3>Winners</h3>
+        <p class="amount">₹3,000</p>
+        <p class="plus">+ Trophy</p>
+      </div>
+      <div class="prize-card runner">
+        <span class="trophy">🥈</span>
+        <h3>Runners-Up</h3>
+        <p class="amount">₹2,500</p>
+        <p class="plus">+ Trophy</p>
+      </div>
+    </div>
+    <div class="motm-banner">
+      <span class="medal">🏅</span>
+      <p><strong>Man of the Match</strong> medal awarded in every single match of the tournament!</p>
+    </div>
+  </div>
+</section>
+
+<!-- Entry Fee -->
+<section id="entry">
+  <div class="section reveal">
+    <p class="section-label">Entry Fee</p>
+    <h2 class="section-title">Book Your <span class="highlight">Spot</span></h2>
+    <div class="entry-box">
+      <p class="fee-amount">₹2,000</p>
+      <p class="fee-sub">Per Team</p>
+      <p class="fee-note">⚡ Only 16 team slots available — Register early!</p>
+    </div>
+  </div>
+</section>
+
+<!-- Registration -->
+<section id="register">
+  <div class="section">
+    <div class="reg-container">
+      <p class="section-label" style="text-align:center">Join the Battle</p>
+      <h2 class="section-title" style="text-align:center">Register Your <span class="highlight">Team</span></h2>
+
+      <!-- Step 1: Details -->
+      <div class="reg-step active" id="step1">
+        <div class="form-group">
+          <label for="ownerName">Name of Team Owner</label>
+          <input type="text" id="ownerName" placeholder="Enter team owner's full name" autocomplete="name">
+          <p class="error-msg" id="err-owner">Please enter the team owner's name</p>
+        </div>
+        <div class="form-group">
+          <label for="teamName">Name of Team</label>
+          <input type="text" id="teamName" placeholder="Enter your team name">
+          <p class="error-msg" id="err-team">Please enter a team name</p>
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric">
+          <p class="error-msg" id="err-mobile">Please enter a valid 10-digit mobile number</p>
+        </div>
+        <button class="btn-primary" onclick="goToStep2()">Register →</button>
+      </div>
+
+      <!-- Step 2: Payment choice -->
+      <div class="reg-step" id="step2">
+        <h3 style="font-family:'Oswald',sans-serif;font-size:1.1rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);text-align:center;margin-bottom:20px">Choose Payment Mode</h3>
+        <div class="payment-choice">
+          <div class="pay-btn" onclick="goToOnline()">
+            <span class="pay-icon">📱</span>
+            <h4>Online (UPI)</h4>
+            <p>Pay ₹2,000 via UPI</p>
+          </div>
+          <div class="pay-btn" onclick="goToCash()">
+            <span class="pay-icon">💵</span>
+            <h4>Cash</h4>
+            <p>Pay at venue / in person</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3a: Online Payment -->
+      <div class="reg-step" id="step3a">
+        <div class="qr-section">
+          <h3>Scan & Pay via UPI</h3>
+          <p class="qr-amount">₹2,000</p>
+          <p class="qr-upi">UPI ID: 9313400046@fam</p>
+          <div id="qr-code"></div>
+        </div>
+        <div class="form-group">
+          <label for="txnId">Transaction ID <span style="color:var(--red)">*</span></label>
+          <input type="text" id="txnId" placeholder="Enter UPI Transaction / Reference ID">
+          <p class="error-msg" id="err-txn">Transaction ID is mandatory for online payment</p>
+        </div>
+        <button class="btn-primary" id="btnSubmitOnline" onclick="submitOnline()">Submit Registration</button>
+      </div>
+
+      <!-- Step 3b: Cash confirmation (submitted on click) -->
+      <!-- Step 4: Thank You -->
+      <div class="reg-step" id="step4">
+        <div class="thank-you">
+          <div class="check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h2>Thank You!</h2>
+          <p>Your registration has been received successfully.</p>
+          <p>Our organisers will <strong style="color:var(--green)">contact you shortly</strong>.</p>
+          <p class="org-title">Organiser Contacts</p>
+          <div class="org-cards">
+            <div class="org-card">
+              <span class="name">Maher Shah</span>
+              <a href="tel:9313400046">9313400046</a>
+            </div>
+            <div class="org-card">
+              <span class="name">Dhanya Khandor</span>
+              <a href="tel:9023188239">9023188239</a>
+            </div>
+            <div class="org-card">
+              <span class="name">Henik Mehta</span>
+              <a href="tel:9574135543">9574135543</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" stroke="#1db954" stroke-width="2.5" fill="none"/>
+        <rect x="38" y="20" width="8" height="40" rx="3" fill="#f5c842" transform="rotate(-15 42 40)"/>
+        <rect x="40" y="56" width="4" height="14" rx="1.5" fill="#c9a020" transform="rotate(-15 42 63)"/>
+        <circle cx="62" cy="34" r="8" fill="#1db954"/>
+        <path d="M56 30 Q62 34 68 30" stroke="#0a0e0a" stroke-width="1.5" fill="none"/>
+        <path d="M56 38 Q62 34 68 38" stroke="#0a0e0a" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span>THE GRAND TURF CLASH</span>
+    </div>
+    <a href="https://instagram.com/TheGrandTurfClash" target="_blank" rel="noopener" class="footer-insta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+      @TheGrandTurfClash
+    </a>
+    <p class="copy">&copy; 2026 The Grand Turf Clash. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* ── Mobile Nav ── */
+const hamburger=document.getElementById('hamburger'),navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>{
+  navLinks.classList.toggle('open');
+  const spans=hamburger.querySelectorAll('span');
+  if(navLinks.classList.contains('open')){
+    spans[0].style.transform='rotate(45deg) translate(5px,5px)';
+    spans[1].style.opacity='0';
+    spans[2].style.transform='rotate(-45deg) translate(5px,-5px)';
+  }else{
+    spans[0].style.transform='';spans[1].style.opacity='';spans[2].style.transform='';
+  }
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  navLinks.classList.remove('open');
+  const spans=hamburger.querySelectorAll('span');
+  spans[0].style.transform='';spans[1].style.opacity='';spans[2].style.transform='';
+}));
+
+/* ── Nav scroll ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+});
+
+/* ── Countdown to 26 April 2026 ── */
+(function countdown(){
+  const deadline=new Date('2026-04-26T23:59:59+05:30').getTime();
+  function tick(){
+    const now=Date.now(),diff=deadline-now;
+    if(diff<=0){
+      document.getElementById('countdown').innerHTML='<p style="color:var(--red);font-weight:600;font-size:1.1rem">Registration Closed</p>';
+      return;
+    }
+    const d=Math.floor(diff/864e5),h=Math.floor(diff%864e5/36e5),m=Math.floor(diff%36e5/6e4),s=Math.floor(diff%6e4/1e3);
+    document.getElementById('cd-days').textContent=d;
+    document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+    requestAnimationFrame(()=>setTimeout(tick,1000));
+  }
+  tick();
+})();
+
+/* ── Scroll reveal ── */
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:.15});
+reveals.forEach(el=>io.observe(el));
+
+/* ── QR Code ── */
+window.addEventListener('DOMContentLoaded',()=>{
+  const upiStr='upi://pay?pa=9313400046@fam&pn=TheGrandTurfClash&am=2000&cu=INR&tn=EntryFee-GrandTurfClash';
+  new QRCode(document.getElementById('qr-code'),{
+    text:upiStr,width:200,height:200,
+    colorDark:'#000000',colorLight:'#ffffff',
+    correctLevel:QRCode.CorrectLevel.H
+  });
+});
+
+/* ── Form State ── */
+let regData={ownerName:'',teamName:'',mobile:'',paymentMode:'',txnId:''};
+
+function showStep(id){
+  document.querySelectorAll('.reg-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('register').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function goToStep2(){
+  // Validate
+  const owner=document.getElementById('ownerName').value.trim();
+  const team=document.getElementById('teamName').value.trim();
+  const mob=document.getElementById('mobile').value.trim();
+  let valid=true;
+
+  if(!owner){document.getElementById('ownerName').classList.add('error');document.getElementById('err-owner').style.display='block';valid=false}
+  else{document.getElementById('ownerName').classList.remove('error');document.getElementById('err-owner').style.display='none'}
+
+  if(!team){document.getElementById('teamName').classList.add('error');document.getElementById('err-team').style.display='block';valid=false}
+  else{document.getElementById('teamName').classList.remove('error');document.getElementById('err-team').style.display='none'}
+
+  if(!mob||!/^\d{10}$/.test(mob)){document.getElementById('mobile').classList.add('error');document.getElementById('err-mobile').style.display='block';valid=false}
+  else{document.getElementById('mobile').classList.remove('error');document.getElementById('err-mobile').style.display='none'}
+
+  if(!valid)return;
+
+  regData.ownerName=owner;regData.teamName=team;regData.mobile=mob;
+  showStep('step2');
+}
+
+function goToOnline(){
+  regData.paymentMode='Online (UPI)';
+  showStep('step3a');
+}
+
+function goToCash(){
+  regData.paymentMode='Cash';
+  regData.txnId='N/A';
+  submitForm();
+}
+
+function submitOnline(){
+  const txn=document.getElementById('txnId').value.trim();
+  if(!txn){
+    document.getElementById('txnId').classList.add('error');
+    document.getElementById('err-txn').style.display='block';
+    return;
+  }
+  document.getElementById('txnId').classList.remove('error');
+  document.getElementById('err-txn').style.display='none';
+  regData.txnId=txn;
+
+  const btn=document.getElementById('btnSubmitOnline');
+  btn.disabled=true;
+  btn.innerHTML='<span class="spinner"></span>Submitting...';
+  submitForm();
+}
+
+function submitForm(){
+  // Build form and submit via formsubmit.co
+  const formData=new FormData();
+  formData.append('Team Owner Name',regData.ownerName);
+  formData.append('Team Name',regData.teamName);
+  formData.append('Mobile Number',regData.mobile);
+  formData.append('Payment Mode',regData.paymentMode);
+  formData.append('Transaction ID',regData.txnId);
+  formData.append('_subject','New Registration — '+regData.teamName);
+  formData.append('_captcha','false');
+  formData.append('_template','table');
+
+  fetch('https://formsubmit.co/ajax/thegrandturfclash@gmail.com',{
+    method:'POST',
+    body:formData
+  })
+  .then(r=>r.json())
+  .then(data=>{
+    showStep('step4');
+  })
+  .catch(err=>{
+    console.error(err);
+    // Still show thank you — the email may have been sent
+    showStep('step4');
+  });
+}
+</script>
+</body>
+</html>
